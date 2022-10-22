@@ -4,7 +4,7 @@ const fs = require('fs');
 const generateREADME = require('./utils/generateMarkdown.js')
 
 //It's an array of questions for the user to answer
-const questions = [
+questions = [
     {
         type: "input",
         message: "What is your github username?",
