@@ -3,7 +3,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const generateREADME = require('./utils/generateMarkdown.js')
 
-// TODO: Create an array of questions for user input
+//It's an array of questions for the user to answer
 const questions = [
     {
         type: "input",
@@ -36,20 +36,42 @@ const questions = [
     },
     {
         type: "input",
-        message: "Describe the steps that are need to install your project if it applies.",
+        message: "Describe the steps that are needed to install your project if it applies.",
         name: "installation",
+    },
+    {
+        type: "input",
+        message: "Describe how to use your project",
+        name: "usage",
+    },
+    {
+        type: "input",
+        message: "Describe the test that you wrote for your project and how to use them",
+        name: "tests",
+    },
+    {
+        type: "input",
+        message: "Describe how others are able to contribute to your project",
+        name: "contributing",
+    },
+    {
+        type: "list",
+        message: "which license would you like to use?",
+        name: "license",
+        choices: ["Apache", "Mozilla", "MIT"],
     }
 ];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile("./utils/generated-README.md", data, err => {
+    fs.writeFile(fileName, data, err => {
         if (err) {
             return console.log(err);
         }
         console.log("Congrats! Your README has now been generated!")
     })
 }
+
 
 // TODO: Create a function to initialize app
 function init() {
